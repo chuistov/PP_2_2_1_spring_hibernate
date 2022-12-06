@@ -1,9 +1,9 @@
 package hiber.model;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 @Entity
-@Table(name = "users")
+@Table(schema = "repository", name = "users")
 public class User {
 
    @Id
@@ -20,7 +20,7 @@ public class User {
    private String email;
 
    public User() {}
-   
+
    public User(String firstName, String lastName, String email) {
       this.firstName = firstName;
       this.lastName = lastName;
@@ -57,5 +57,14 @@ public class User {
 
    public void setEmail(String email) {
       this.email = email;
+   }
+
+   @Override
+   public String toString() {
+      return "User{" +
+             "firstName='" + firstName + '\'' +
+             ", lastName='" + lastName + '\'' +
+             ", email='" + email + '\'' +
+             '}';
    }
 }
